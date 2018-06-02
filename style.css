@@ -97,9 +97,8 @@ span
 .boxes
 {
 	margin-top: 15vh;
-	margin-right: 15vw;
-	margin-left: 10vw;
-	transform: translateX(5%);	
+	height: 100%;
+	width: auto;
 }
 .b:hover
 {
