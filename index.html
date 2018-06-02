@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simple os</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+	<div class="all">
+		<div id="date"></div>
+		<div id="txt" class="time"></div>
+		<div class="temp">“Get busy living or get busy dying.” <span>-Stephen King</span>
+		</div>
+		<div class="button"></div>
+
+		<div class="browser">
+			<div class="c3"></div>
+			<div class="t1">No Internet Connection</div>
+		</div>
+
+		<div class="menu">
+			<div class="cross"></div>
+			<div class="boxes">
+				<div class="a1 b"></div>
+				<div class="a2 b"></div>
+				<div class="a3 b"></div>
+				<div class="a6 b"></div>
+				<div class="a4 b"></div>
+				<div class="a7 b"></div>
+				<div class="a5 b"></div>
+				<div class="a8 b"></div>
+			</div>
+		</div>
+
+		<div class="map">
+			<div class="c1"></div>
+			<iframe width="600px" height="400px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=4&center=20.5937%2C78.9629&key=AIzaSyDqvC2u9SM-y0iB4nWw336bTg4oQziTRU0" allowfullscreen></iframe>
+		</div>
+		<div class="calc">
+			<div class="c2"></div>
+			<div id="calculator">
+				<div class="top">
+					<span class="clear">C</span>
+					<div class="screen"></div>
+				</div>
+
+				<div class="keys">
+					<span>7</span>
+					<span>8</span>
+					<span>9</span>
+					<span class="operator">+</span>
+					<span>4</span>
+					<span>5</span>
+					<span>6</span>
+					<span class="operator">-</span>
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span class="operator">÷</span>
+					<span>0</span>
+					<span>.</span>
+					<span class="eval">=</span>
+					<span class="operator">x</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="calendar">
+			<div class="c4"></div>
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ssiddhant9811%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FCalcutta" style="border-width:0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+		</div>
+
+
+	</div>
+	
+	<script type="text/javascript">
+
+	//time
+	$(document).ready(startTime())
+	function startTime() {
+		var today = new Date();
+		var h = today.getHours();
+		var m = today.getMinutes();
+
+		m = checkTime(m);
+
+		document.getElementById('txt').innerHTML =
+		h + ":" + m ;
+		var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+//date
+$(document).ready(function(){
+	n =  new Date();
+	y = n.getFullYear();
+	m = n.getMonth() + 1;
+	d = n.getDate();
+	document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+})
+
+//apps
+$(document).ready(function(){
+	$('.button').click(function(){
+		$('#date').css('visibility','hidden')
+		$('.time').css('visibility','hidden')
+		$('.temp').css('visibility','hidden')
+		$('.button').css('visibility','hidden')
+		$('.menu').css('left','0')
+		$('.menu').css('left','0')
+		
+	})
+	function revert() {
+		$('#date').css('visibility','visible')
+		$('.time').css('visibility','visible')
+		$('.temp').css('visibility','visible')
+		$('.button').css('visibility','visible')
+		$('.menu').css('left','-100%')
+		$('.all').css('filter','blur(0px)')
+	}
+	$('.cross').click(function(){
+		revert()
+	})
+	$('.a6').click(function(){
+		revert()
+		$('.map').css('left','0')		
+	})
+	$('.a2').click(function(){
+		revert()
+		$('.calc').css('left','0')		
+	})
+	$('.a3').click(function(){
+		revert()
+		$('.browser').css('left','0')		
+	})
+	$('.a1').click(function(){
+		revert()
+		$('.calendar').css('right','10%')		
+	})
+	$('.c1').click(function(){
+		$('.map').css('left','-100%')
+	})
+	$('.c2').click(function(){
+		$('.calc').css('left','-100%')
+	})
+	$('.c3').click(function(){
+		$('.browser').css('left','-100%')
+	})
+	$('.c4').click(function(){
+		$('.calendar').css('right','-100%')
+	})
+	
+	
+})
+
+//draggable
+$(document).ready(function(){
+	$('.map').draggable()
+	$('.calc').draggable()
+	$('.browser').draggable()
+	$('.calendar').draggable()
+})
+
+
+$(document).ready(function(){
+	var keys = document.querySelectorAll('#calculator span');
+	var operators = ['+', '-', 'x', '÷'];
+	var decimalAdded = false;
+
+
+	for(var i = 0; i < keys.length; i++) {
+		keys[i].onclick = function(e) {
+
+			var input = document.querySelector('.screen');
+			var inputVal = input.innerHTML;
+			var btnVal = this.innerHTML;
+			var total;
+			if(btnVal == 'C') {
+				input.innerHTML = '';
+				decimalAdded = false;
+			}
+
+			else if(btnVal == '=') {
+				var equation = inputVal;
+				var lastChar = equation[equation.length - 1];
+
+				equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
+
+				if(operators.indexOf(lastChar) > -1 || lastChar == '.')
+					equation = equation.replace(/.$/, '');
+
+				if(equation)
+				{
+					total = eval(equation);
+					if(total.toString().indexOf('.') != -1)
+						total= total.toFixed(2);
+
+					input.innerHTML = total;
+				}
+				
+				decimalAdded = false;
+			}
+
+
+			else if(operators.indexOf(btnVal) > -1) {
+
+				var lastChar = inputVal[inputVal.length - 1];
+
+				if(inputVal != '' && operators.indexOf(lastChar) == -1) 
+					input.innerHTML += btnVal;
+
+				else if(inputVal == '' && btnVal == '-') 
+					input.innerHTML += btnVal;
+
+				if(operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
+					input.innerHTML = inputVal.replace(/.$/, btnVal);
+				}
+
+				decimalAdded =false;
+			}
+
+			else if(btnVal == '.') {
+				if(!decimalAdded) {
+					input.innerHTML += btnVal;
+					decimalAdded = true;
+				}
+			}
+
+			else {
+				input.innerHTML += btnVal;
+			}
+
+			e.preventDefault();
+		} 
+	}
+})
+</script>
+</body>
+</html>
