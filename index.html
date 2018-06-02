@@ -122,6 +122,10 @@
 			$(".name").html(name[songno]);
 			console.log(name[10])
 		}
+		$(document).ready(function() {
+			song.src = songs[songno]
+			playsong()
+		})
 		function playsong(){
 			song.play()
 		}
@@ -289,7 +293,6 @@ $(document).ready(function(){
 		$('.browser').css('left','0')		
 	})
 	$('.a4').click(function(){
-		playsong()
 		revert()
 		$('.main').css('left','0')		
 	})
