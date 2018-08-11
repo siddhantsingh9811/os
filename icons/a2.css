@@ -1,0 +1,132 @@
+body
+{
+	font-family: 'Montserrat', sans-serif;
+	transition: 0.5s;	
+	padding: 0;
+	margin: 0;
+}
+.main
+{
+	height: 300px;
+	width: 600px;
+	position: absolute;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	overflow: hidden;
+	box-shadow: 0 3px 20px 1px #000;
+}
+.lines
+{
+	cursor: pointer;
+	position: absolute;
+	z-index: 20;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.line2
+{
+	position: absolute;
+	z-index: 20;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.cover
+{
+	transition:0.5s;
+	position: absolute;
+	height:100%;
+	width:100%;
+	z-index: 200;
+	background-color: #000000b0;
+	right: -100%;
+}
+.l
+{
+	height: 2px;
+	width: 25px;
+	background-color:black;
+	margin:5px;
+}
+#a
+{
+	margin-top: 70px;
+}
+.menu2
+{
+	transition: 0.5s;
+	height:100%;
+	width:25%;
+	background-color: white;
+	position: absolute;
+	left: -100%;
+	z-index: 300;
+}
+li
+{
+	transition: 0.3s;
+	padding: 5px;
+}
+li:hover
+{
+	cursor: pointer;
+	transform: scale(1.2);
+}
+.controls
+{
+	background-color:white;
+	display: inline-block;
+}
+.img
+{
+	background:url('1.jpg');
+	display: inline-block;
+	background-size: cover;
+}
+.name
+{
+	margin-top: 30px;
+}
+.buttons
+{
+	margin-top: 100px;
+	z-index: 250;
+}
+.back
+{
+	display: inline-block;
+	margin: 5px;
+	height: auto;
+	width: auto;
+	cursor: pointer;
+	z-index: 250;
+}
+.pause
+{
+	z-index: 250;
+	display: inline-block;
+	margin: 5px;
+	height: auto;
+	width: auto;
+	cursor: pointer;
+}
+.forward
+{
+	z-index: 250;
+	margin:5px;
+	display: inline-block;
+	height: auto;
+	width: auto;
+	cursor: pointer;
+}
+.cross3
+{
+	cursor: pointer;
+	position: absolute;
+	font-size: 35px;
+	z-index: 300;
+	margin-top: 20px;
+	margin-left: 10px;
+}
