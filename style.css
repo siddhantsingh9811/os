@@ -8,49 +8,21 @@ body
 {
 	position: absolute;
 	z-index: 50;
-	background: url(background.png);
+	background: url(bg.png);
 	background-size: cover;
 	height: 100vh;
 	width: 100vw;
 	filter: blur(0px);
 	overflow: hidden;
 }
-#date
-{
-	font-size: 35px;
-	position: absolute;
-	right: 3%;
-	top: 2%;
-	font-weight: bold;
-}
 .time
 {
-	margin-top: 50px;
-	height: 300px;
-	width: 150px;
+	font-family: 'Rajdhani', sans-serif;
 	position: absolute;
-	display: grid;
-	grid-template-columns: 50% 50%;
-	font-family: 'Montserrat', sans-serif;
+	font-size: 12em;
+	color: #fff;
 	left: 50%;
 	transform: translateX(-50%);
-	font-size: 10em;
-	color: #fff;
-	
-	
-}
-#hours
-{
-	color: #000;
-	justify-content: center;
-	margin: 0;
-	transform: translateX(-150px);
-}
-#mins
-{
-	margin: 0;
-	color: #32D1CB;
-	justify-content: center;
 }
 .menu
 {
@@ -61,9 +33,32 @@ body
 	left: -100%;
 	background-color: rgba(0, 0, 0, 0.62);
 }
-
-
-
+span
+{
+	font-family: sans-serif;
+	font-weight: lighter;
+}
+.temp
+{
+	font-weight: lighter;
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 25px;
+	color: 
+}
+#date
+{
+	font-family: 'Rajdhani', sans-serif;
+	font-weight: lighter;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 35px;
+	color: #000;
+}
 .button
 {
 	height: 50px;
@@ -161,13 +156,19 @@ body
 	width: 600px;
 	background-color: #222;
 }
-
+.calendar iframe
+{
+	margin-top: 30px;
+}
 .calendar
 {
 	position: absolute;
-	height:100px;
-	width: 400px;
-	left: -100%;
+	margin-top:50px;
+	margin-left:50px;
+	height:400px;
+	width: 600px;
+	background-color: #222;
+	left:-100%;
 }
 .browser
 {
@@ -220,7 +221,6 @@ body
 }
 .c3
 {
-
 	float: right;
 	height: 30px;
 	width: 30px;
@@ -241,7 +241,7 @@ body
 	background: url(cross2.png);
 	margin: 0;
 	background-size: cover;
-	transform: scale(0.8) translateY(50px);
+	transform: scale(0.5);
 	z-index: 900;
 	cursor: pointer;
 }
@@ -513,27 +513,5 @@ li:hover
 	margin-top: 20px;
 	margin-left: 10px;
 }
-
-::selection {
-    background: transparent;
-}
-
-#example
-{
-	right: 10%;
-	position: absolute;
-	transform: scale(0.7);
-	font-size: 20px;
-	font-family: sans-serif;
-}
-
-
-
-
-
-
-
-
-
 
 
